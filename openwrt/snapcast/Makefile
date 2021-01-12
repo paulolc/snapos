@@ -54,7 +54,7 @@ endef
 define Package/snapclient
 	$(call Package/snapcast/Default)
 	TILE += Snapclient
-	DEPENDS += +AUDIO_SUPPORT:alsa-lib +libvorbisidec +libsoxr
+	DEPENDS += +AUDIO_SUPPORT:alsa-lib +libvorbisidec +libsoxr +AUDIO_SUPPORT:pulseaudio-daemon 
 	HIDDEN := 1
 endef
 
@@ -67,6 +67,10 @@ define Package/snapclient/description
 	$(call Package/snapcast/description/Default)
 	Snapcast client
 endef
+
+ifeq ($(CONFIG_AUDIO_SUPPORT),y)
+        TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib/pulseaudio
+endif
 
 define Package/snapcast/config
  	menu "Select Snapcast Options"
