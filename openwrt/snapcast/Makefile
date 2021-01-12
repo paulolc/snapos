@@ -13,7 +13,7 @@ PKG_RELEASE := $(PKG_SOURCE_VERSION)
 PKG_USE_MIPS16 := 0
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/badaix/snapcast.git
+PKG_SOURCE_URL:=https://github.com/paulolc/snapcast.git
 PKG_SOURCE_VERSION:=v0.23.0
 PKG_BUILD_DIR:=$(BUILD_DIR)/snapcast-$(PKG_VERSION)
 
